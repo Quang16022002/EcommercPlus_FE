@@ -1,0 +1,251 @@
+.product-preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+}
+
+
+.product-preview-content {
+ 
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    width: 90%;
+    height: auto;
+    max-width: 950px;
+    margin: auto;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.product-preview-nav {
+    height: 2000px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    
+}
+
+.product-nav-item {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 16px;
+}
+
+.product-nav-item.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+.button-pre {
+    margin-bottom: 70px;
+    display: flex;
+    > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    }
+    .product-preview-nav {
+        background-color: white;
+        height: 50px;
+        border-radius: 30px;
+    }
+
+    .product-nav-item1 {
+        border: none;
+        background-color: transparent;
+    }
+    .product-nav-item1-active1 {
+        background-color: rgb(29, 29, 31);
+        border-radius: 40px;
+        margin: 2px;
+        padding: 0 23px;
+        color: white;
+    }
+.product-preview-info {
+    background-color: white;
+    border-radius: 15px;
+    // padding: 30px ;
+}
+
+.product-preview-info-img {
+    position: relative;
+   
+    
+}
+.product-preview-info-img:hover  .image-navigation{
+ 
+        background-color: antiquewhite;
+   
+}
+.image-navigation {
+    position: absolute;
+    bottom: 55%;
+    width: 70%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-left: -16px;
+    > i {
+        font-size: 25px;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        background-color: rgb(232, 232, 237);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: rgb(28, 26, 26);
+        animation: pulse 2s infinite; /* 1s là thời gian một vòng lặp, infinite là lặp lại liên tục */
+        transition: transform 2s; 
+    }
+}
+/* Định nghĩa hiệu ứng phóng to thu nhỏ */
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+
+  
+  /* Có thể thay đổi kích thước hoặc các thuộc tính khác khi hover vào icon */
+  .image-navigation i:hover {
+    transform: scale(1.1); /* Tăng kích thước khi hover */
+  }
+  .product-preview-info-left-bottom {
+    width: 82%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    > p {
+        color: #6e6e73;
+        font-size: 13px;
+    }
+    .qty-color {
+        margin: 0 auto;
+      
+    }
+  }
+  .product-preview-bottom {
+    background-color: rgb(245, 245, 247);
+    height: 100%;
+    border-radius: 0 0 15px 15px;
+  }
+
+.rf-digitalmat-valueprops-container {
+    display: flex;
+    justify-content: space-between;
+    > .rf-digitalmat-valueprops-item {
+        padding: 20px 0;
+        display: flex;
+        width: 33%;
+        > .rf-digitalmat-valueprops-icon {
+            width: 50px;
+        }
+    }
+    .rf-digitalmat-valueprops-header {
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+    }
+    .rf-digitalmat-valueprops-description 
+       
+    {
+       
+        > span {
+            font-size: 14px;
+        }
+    }
+}
+
+.rf-digitalmat-valueprops-description {
+    float: left;
+    margin-left: 10px;
+}
+.product-preview-info{
+   height: 100%;
+}
+
+.product-preview-info-content1 {
+    width: 100%;
+    height: 250px; /* Đặt chiều cao cố định */
+    overflow-y: auto; /* Hiển thị thanh cuộn dọc khi cần */
+
+    box-sizing: border-box; /* Đảm bảo padding và border không làm tăng kích thước tổng cộng */
+  }
+  .button-wath {
+    border: none;
+    background-color: transparent;
+    background-color: rgb(29, 29, 31);
+    color: white;
+    height: 40px;
+    border-radius: 20px;
+    padding: 0 20px;
+    transition: all .5s ease;
+    border: 1px solid  rgb(29, 29, 31);
+margin-top: 10px;
+    &:hover {
+        background-color: white;
+        color: black;
+        // border: 1px solid  rgb(29, 29, 31);
+        font-weight: 600;
+
+    }
+  }
+
+::-webkit-scrollbar {
+    width: 3px; /* Chiều rộng của thanh cuộn */
+    background: rgb(226, 226, 228);
+    border-radius: 10px;
+
+  }
+  
+
+  
+
+  
+  /* Thanh cuộn cho Firefox */
+  .content-container1 {
+    scrollbar-width: thin; /* Kích thước của thanh cuộn */
+    scrollbar-color: #941919 transparent; /* Màu của thanh cuộn và nền của vùng thanh cuộn */
+  }
+
+  .button-buy  {
+    align-items: center;
+    > a {
+        background-color: rgb(0, 110, 227);
+        padding: 0 15px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 30px;
+    }
+  }

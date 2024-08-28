@@ -1,0 +1,87 @@
+.d-block{
+
+    h4{
+        display: block;
+        display: -webkit-box;
+        max-width: 100%;
+        height: 35px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 1.4;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+.single-product {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 2px 4px 12px #00000014;
+    transition: all .5s cubic-bezier(0,0,.5,1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &:hover {
+        scale: (1.02);
+    box-shadow: 10px 10px 12px #00000014;
+    box-shadow: -10px 0px 12px #00000014;
+
+        
+    }
+    .p_icon-pop {
+        position: absolute;
+        background-color: rgb(46, 43, 43);
+        bottom: 30px;  /* Bắt đầu từ bên dưới */
+        left: 50%;
+        border-radius: 30px;
+        height: 40px;
+        transform: translateX(-50%);
+        opacity: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        transition: all 0.5s ease; /* Thêm hiệu ứng chuyển đổi */
+        &:hover {
+            background-color: rgb(2, 111, 227);
+            color: white;
+        }
+        > a {
+            color: white;
+        }
+    }
+
+    &:hover .p_icon-pop {
+        bottom: 55px; /* Vị trí mục tiêu khi hover */
+        opacity: 1;   /* Hiển thị p_icon-pop */
+    }
+}
+.product-btm {
+    border: none;
+}
+
+.product-img {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px 0px;
+}
+
+.buy {
+    background-color: rgb(2, 111, 227);
+     > a {
+        color: white;
+        padding: 0;
+        margin: 0;
+     }
+     display: flex;
+     align-items: center;
+     padding: 0 15px;
+     border-radius: 20px;
+     color: white;
+     &:hover {
+        color: white;
+     }
+     
+}
+
