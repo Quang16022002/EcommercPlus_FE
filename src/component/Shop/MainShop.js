@@ -10,7 +10,7 @@ function MainShop(props) {
   const [dataProduct, setdataProduct] = useState([]);
   const [count, setCount] = useState(0);
   const [numberPage, setnumberPage] = useState(0);
-  const [limitPage, setlimitPage] = useState(PAGINATION.pagerow);
+  const [limitPage, setlimitPage] = useState(8);
   const [sortPrice, setsortPrice] = useState("");
   const [sortName, setsortName] = useState("");
   const [offset, setoffset] = useState(0);
@@ -41,7 +41,6 @@ function MainShop(props) {
         brandId: brandId,
         keyword: keyword,
       });
-
       if (arrData && arrData.errCode === 0) {
         setdataProduct(arrData.data);
         setCount(Math.ceil(arrData.count / limitPage));
@@ -93,9 +92,10 @@ function MainShop(props) {
     setShowPreview(false);
     setCurrentProduct(null);
   };
-
   return (
-    <div className="col-lg-9">
+    <div className="col-lg-12">
+      <div>
+      </div>
       <div className="product_top_bar">
         <div className="left_dorp">
           <select
@@ -112,9 +112,9 @@ function MainShop(props) {
             onChange={handleSelectLimitPage}
             className="show"
           >
-            <option value={6}>Hiển thị 6</option>
-            <option value={12}>Hiển thị 12</option>
-            <option value={18}>Hiển thị 18</option>
+            <option value={8}>Hiển thị 8</option>
+            <option value={16}>Hiển thị 16</option>
+            <option value={24}>Hiển thị 24</option>
           </select>
           <div
             style={{
@@ -140,7 +140,7 @@ function MainShop(props) {
                 <ItemProduct
                   key={item.id}
                   id={item.id}
-                  type="col-lg-4 col-md-6"
+                  type="col-lg-3 col-md-6"
                   name={item.name}
                   img={item.productDetail[0].productImage[0].image}
                   discountPrice={item.productDetail[0].discountPrice}
@@ -153,7 +153,7 @@ function MainShop(props) {
           })}
         </div>
       </div>
-      <ReactPaginate
+      {/* <ReactPaginate
         previousLabel={"Quay lại"}
         nextLabel={"Tiếp"}
         breakLabel={"..."}
@@ -169,7 +169,7 @@ function MainShop(props) {
         breakClassName={"page-item"}
         activeClassName={"active"}
         onPageChange={handleChangePage}
-      />
+      /> */}
       {showPreview && currentProduct && (
         <div className="product-preview-overlay" onClick={handleClosePreview}>
           <ProductPreview 

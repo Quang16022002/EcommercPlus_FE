@@ -13,12 +13,11 @@
 
 
 .product-preview-content {
- 
     padding: 20px;
     border-radius: 5px;
     position: relative;
     width: 90%;
-    height: auto;
+    height: 900px;
     max-width: 950px;
     margin: auto;
 }
@@ -249,3 +248,20 @@ margin-top: 10px;
     margin-left: 30px;
     }
   }
+
+  /////////
+  .product-preview-nav {
+    height: 50px;
+    width: 100%;
+    display: flex; /* Sử dụng flex để đặt các item theo hàng ngang */
+    overflow-x: auto; /* Cho phép cuộn ngang nếu vượt quá chiều rộng */
+    white-space: nowrap; /* Đảm bảo các item không xuống dòng */
+  }
+.product-nav-item1 {
+    padding: 0 20px;
+}
+  .product-preview-nav::-webkit-scrollbar {
+    height: 3px; /* Chiều cao của thanh cuộn */
+    width: 100px;
+  }
+  

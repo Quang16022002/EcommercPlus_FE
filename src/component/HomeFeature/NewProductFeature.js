@@ -7,7 +7,6 @@ import ProductPreview from '../Product/ProductPreview';
 function NewProductFeature(props) {
     const [showPreview, setShowPreview] = useState(false);
     const [currentProduct, setCurrentProduct] = useState(null);
-
     const handlePreview = (product) => {
         setCurrentProduct(product);
         setShowPreview(true);

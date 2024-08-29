@@ -1,0 +1,51 @@
+.banner_contentShop {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 650px;
+    width: 100%;
+}
+.rs-shop-header {
+padding-top: 10px;
+}
+.rs-shop-header-section {
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 48px;
+    > h1 {
+        font-weight: 600;
+        > span {
+            color: rgb(110, 110, 115);
+        }
+    }
+}
+.rf-shop-chaticon-container {
+    display: flex;
+    > img {
+        margin-right: 10px;
+    }
+    align-items: center;
+}
+.rf-shop-chat-title {
+    font-size: 14px;
+
+}
+.rf-shop-chat-container{
+    height: 10px;
+    > p {
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+    }
+    > p:last-child {
+        color: #0066cc;
+        cursor: pointer;
+        > i {
+            transform: rotate(-40deg);
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    }
+}

@@ -79,9 +79,9 @@ function HomePage(props) {
     }
     useEffect(() => {
         AOS.init({
-          duration: 1000, // Thời gian cho hiệu ứng (ms)
+            duration: 1000, // Thời gian cho hiệu ứng (ms)
         });
-      }, []);
+    }, []);
     return (
         <div>
          <div data-aos="flip-left">

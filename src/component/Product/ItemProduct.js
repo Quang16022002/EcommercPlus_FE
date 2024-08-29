@@ -14,7 +14,7 @@ function ItemProduct(props) {
         <div data-aos="flip-down" className={props.type}>
             <div onClick={props.onPreview} style={{ cursor: 'pointer' }} className="single-product">
                 <div style={{ width: props.width, height: props.height, border: 'none' }} className="product-img">
-                    <h4 style={{ float: 'left', fontSize: 24, padding: '15px 0' }}>{props.name}</h4>
+                    <h4 style={{ float: 'left', fontSize: 20, padding: '15px 0' , height:65}}>{props.name}</h4>
                     <img className="img-fluid w-100" src={props.img} alt={props.name} />
                     <div className="p_icon-pop">
                         <a >

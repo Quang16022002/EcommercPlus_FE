@@ -56,6 +56,7 @@ function ProductPreview({
   const handleToggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
+  console.log('products',products)
   return (
     <div className="product-preview-overlay" onClick={onClose}>
       <div
@@ -68,21 +69,26 @@ function ProductPreview({
           </button>
         </div>
         <div style={{}}  className="">
-          <div className="product-preview-nav">
-            {products.map((product) => (
-              <button
-                key={product.id}
-                onClick={() => handleProductChange(product)}
-                className={`product-nav-item1 ${
-                  product.id === activeProduct.id
-                    ? "product-nav-item1-active1"
-                    : ""
-                }`}
-              >
-                {product.name}
-              </button>
-            ))}
-          </div>
+        <div className="product-preview-nav">
+  {products
+    .filter((product) => product.categoryId === activeProduct.categoryId) // Lọc sản phẩm theo categoryId
+    .slice(0, 5) // Giới hạn số lượng sản phẩm hiển thị
+    .map((product) => (
+      <button
+        key={product.id}
+        onClick={() => handleProductChange(product)}
+        className={`product-nav-item1 ${
+          product.id === activeProduct.id
+            ? "product-nav-item1-active1"
+            : ""
+        }`}
+      >
+        {product.name}
+      </button>
+    ))}
+</div>
+
+
           <div className="product-preview-info row">
             <div className="col-md-6 py-5 px-5">
               {/* Hiển thị ảnh của phần tử hiện tại */}
