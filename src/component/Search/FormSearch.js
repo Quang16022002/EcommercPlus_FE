@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-
+import './FormSearch.scss'
 import { toast } from 'react-toastify';
 import { useParams } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
@@ -21,10 +21,10 @@ const FormSearch = (props) => {
     return (
         <form   >
         <div className="form-group">
-            <div className="input-group mb-3">
-                <input onChange={(e) => handleOnchange(e.target.value)} value={keyword} type="text" className="form-control" placeholder={`Tìm kiếm theo ${props.title}`} />
-                <div className="input-group-append">
-                    <button onClick={() =>handleSearchProduct()}  className="btn" type="button"><i className="ti-search" /></button>
+            <div className="input-group mb-3 row">
+                <input onChange={(e) => handleOnchange(e.target.value)} value={keyword} type="search" className="col-md-10" placeholder={`Tìm kiếm theo ${props.title}`} />
+                <div className="col-md-2 d-flex  ">
+                    <button onClick={() =>handleSearchProduct()}  className="btn-search" type="button"><i className="ti-search" /></button>
                 </div>
             </div>
         </div>

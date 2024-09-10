@@ -67,8 +67,13 @@ function ShopPage(props) {
             </div>
           </div>
       <section className="cat_product_area section_gap">
-        <div style={{backgroundColor:'#ccc'}} className="container">
+        <div  className="container">
           <div className="row ">
+          <div className="left_sidebar_area d-flex" >
+            <div className="filter-a"> <i class="fa-solid fa-filter"></i>Bộ lọc</div>
+                                <div style={{margin:'0 20px'}}><Brand  handleRecevieDataBrand={handleRecevieDataBrand} /></div>
+                                <Category handleRecevieDataCategory={handleRecevieDataCategory} />
+                            </div>
             <MainShop categoryId={categoryId} brandId={brandId} myRef={myRef} />
           
             

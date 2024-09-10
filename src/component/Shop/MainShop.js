@@ -5,7 +5,7 @@ import { PAGINATION } from "../../utils/constant";
 import ReactPaginate from "react-paginate";
 import FormSearch from "../Search/FormSearch";
 import ProductPreview from '../Product/ProductPreview';
-
+import './MainShop.scss'
 function MainShop(props) {
   const [dataProduct, setdataProduct] = useState([]);
   const [count, setCount] = useState(0);
@@ -19,10 +19,10 @@ function MainShop(props) {
   const [keyword, setkeyword] = useState("");
   const [showPreview, setShowPreview] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
-
-  useEffect(() => {
-    loadProduct(limitPage, sortName, sortPrice, offset, categoryId, keyword);
-  }, [limitPage, sortName, sortPrice, offset, categoryId, keyword, brandId]);
+  
+useEffect(() => {
+  loadProduct(limitPage, sortName, sortPrice, offset, categoryId, keyword);
+}, [limitPage, sortName, sortPrice, offset, categoryId, keyword, brandId]);
 
   useEffect(() => {
     setcategoryId(props.categoryId);
@@ -40,6 +40,7 @@ function MainShop(props) {
         categoryId: categoryId,
         brandId: brandId,
         keyword: keyword,
+    
       });
       if (arrData && arrData.errCode === 0) {
         setdataProduct(arrData.data);
@@ -56,6 +57,7 @@ function MainShop(props) {
   };
 
   const handleChangePage = (number) => {
+    
     setnumberPage(number.selected);
     setoffset(number.selected * limitPage);
     props.myRef.current.scrollIntoView();
@@ -92,16 +94,17 @@ function MainShop(props) {
     setShowPreview(false);
     setCurrentProduct(null);
   };
+  
   return (
     <div className="col-lg-12">
       <div>
       </div>
       <div className="product_top_bar">
-        <div className="left_dorp">
+        <div className="left_dorp d-flex">
           <select
             style={{ outline: "none" }}
             onChange={handleSelectSort}
-            className="sorting"
+            className="sortingg"
           >
             <option value={1}>Sắp xếp</option>
             <option value={2}>Theo giá tiền</option>
@@ -110,12 +113,15 @@ function MainShop(props) {
           <select
             style={{ outline: "none" }}
             onChange={handleSelectLimitPage}
-            className="show"
+            className="sortingg"
           >
             <option value={8}>Hiển thị 8</option>
             <option value={16}>Hiển thị 16</option>
             <option value={24}>Hiển thị 24</option>
+            <option value={10000000}>Hiển thị tất cả</option>
           </select>
+
+
           <div
             style={{
               display: "inline-block",
@@ -124,11 +130,13 @@ function MainShop(props) {
             }}
           >
             <FormSearch
-              title={"tên tên quần áo"}
+              title={"tên sản phẩm"}
               handleOnchange={handleOnchangeSearch}
               handleSearch={handleSearch}
             />
           </div>
+       
+
         </div>
       </div>
       <div style={{ marginBottom: "10px" }} className="latest_product_inner">

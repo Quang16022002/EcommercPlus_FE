@@ -50,7 +50,7 @@ function ProductPreview({
 
   // Lấy nội dung và cắt đến 200 ký tự
   const content = activeProduct.contentMarkdown;
-  const truncatedContent = content.length > 350 ? content.substring(0, 350) + "..." : content;
+  const truncatedContent = content.length > 350 ? content.substring(0, 330) + "..." : content;
 
   // Hàm để toggle trạng thái mở rộng
   const handleToggleExpand = () => {

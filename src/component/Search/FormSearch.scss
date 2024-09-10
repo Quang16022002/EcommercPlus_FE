@@ -1,0 +1,21 @@
+.input-group {
+       border: 1px solid rgb(237, 237, 237);
+    border-radius: 5px;
+    height: 40px;
+    > input {
+        // margin-left:  20px;
+       border-radius: 5px 0 0 5px;
+        border: none;
+        border-right: 1px solid rgb(237, 237, 237);
+      
+     
+    }
+    > input:focus {
+        outline: none;
+    }
+    .btn-search {
+        background-color: #ffffff;
+        border: none;
+        
+    }
+}

@@ -11,7 +11,7 @@ function ItemProduct(props) {
         });
       }, []);
     return (
-        <div data-aos="flip-down" className={props.type}>
+        <div data-aos="fade-up" className={props.type}>
             <div onClick={props.onPreview} style={{ cursor: 'pointer' }} className="single-product">
                 <div style={{ width: props.width, height: props.height, border: 'none' }} className="product-img">
                     <h4 style={{ float: 'left', fontSize: 20, padding: '15px 0' , height:65}}>{props.name}</h4>

@@ -49,3 +49,18 @@ padding-top: 10px;
         }
     }
 }
+.filter-a {
+    border: 1px solid rgb(237, 237, 237);
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border-radius: 5px;
+    width: 130px;
+    position: relative;
+    justify-content: center;
+    > i {
+        margin-right: 5px;
+        font-size: 12px;
+        color: rgb(77, 71, 71);
+    }
+}

@@ -1,56 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import { useFetchAllcode } from '../../container/customize/fetch';
+import React, { useState, useEffect, useRef } from 'react';
+import './Brand.scss'; // Sử dụng chung file SCSS với Brand
 import { getAllCodeService } from '../../services/userService';
+
 function Category(props) {
+    const [arrCategory, setArrCategory] = useState([]);
+    const [activeLinkId, setActiveLinkId] = useState('');
+    const [isCategoryListVisible, setIsCategoryListVisible] = useState(false);
+    const [isCategorySelected, setIsCategorySelected] = useState(false);
+    const categoryRef = useRef(null); // Tham chiếu đến thành phần
 
+    let handleClickCategory = (code) => {
+        props.handleRecevieDataCategory(code);
+        setActiveLinkId(code);
+        setIsCategoryListVisible(false);
+        setIsCategorySelected(true);
+    };
 
-    const [arrCategory, setarrCategory] = useState([])
-    const [activeLinkId, setactiveLinkId] = useState('')
+    let toggleCategoryList = () => {
+        setIsCategoryListVisible(!isCategoryListVisible);
+    };
 
     useEffect(() => {
         let fetchCategory = async () => {
-            let arrData = await getAllCodeService('CATEGORY')
+            let arrData = await getAllCodeService('CATEGORY');
             if (arrData && arrData.errCode === 0) {
                 arrData.data.unshift({
                     createdAt: null,
-                    code: 'ALL',
+                    code: "ALL",
                     type: "CATEGORY",
                     value: "Tất cả",
-                })
-                setarrCategory(arrData.data)
+                });
+                setArrCategory(arrData.data);
+            }
+        };
+        fetchCategory();
+    }, []);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (categoryRef.current && !categoryRef.current.contains(event.target)) {
+                setIsCategoryListVisible(false); // Ẩn danh sách nếu click ra ngoài
             }
         }
-        fetchCategory()
-    }, [])
-    let handleClickCategory = (code) => {
-        props.handleRecevieDataCategory(code)
-        setactiveLinkId(code)
-    }
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [categoryRef]);
 
     return (
-
-        <aside className="left_widgets p_filter_widgets">
-            <div className="l_w_title">
-                <h3>Các danh mục</h3>
+        <aside style={{ backgroundColor: 'white' }} className="brand_shop" ref={categoryRef}>
+            <div 
+                className="brand_title" 
+                onClick={toggleCategoryList} 
+                style={{ cursor: 'pointer' }}
+            >
+                <p style={{ color: isCategorySelected ? 'rgb(18, 18, 18)' : 'black', marginRight: 12 }}>
+                    Danh mục <i className="fa-solid icon-brand fa-sort-down"></i>
+                </p>
             </div>
-            <div className="widgets_inner">
-                <ul className="list">
-
+            {isCategoryListVisible && (
+                <ul className="brand_option_list d-flex">
+                    <i className="fa-solid fa-caret-up"></i>
                     {arrCategory && arrCategory.length > 0 &&
                         arrCategory.map((item, index) => {
                             return (
-                                <li className={item.code === activeLinkId ? 'active' : ''} style={{ cursor: 'pointer' }} onClick={() => handleClickCategory(item.code)} key={index}>
+                                <li
+                                    className={item.code === activeLinkId ? 'active_brand' : 'brand_item'}
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={() => handleClickCategory(item.code)}
+                                    key={index}
+                                >
                                     <a>{item.value}</a>
                                 </li>
-                            )
+                            );
                         })
                     }
-
-
                 </ul>
-            </div>
+            )}
         </aside>
-
     );
 }
 
