@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import FormSearch from '../Search/FormSearch';
 import ItemCategory from './ItemCategory';
 import SpecialItemBlog from './SpecialItemBlog'
+import './RightBlog.scss'
 function RightBlog(props) {
     const [dataCategory, setdataCategory] = useState([])
     const [activeLinkId,setactiveLinkId] = useState('')
@@ -27,16 +28,16 @@ function RightBlog(props) {
     }
    
     return (
-        <div className="col-lg-4">
+        <div className="">
             <div className="blog_right_sidebar">
             {props.isPage === true && 
             <>
-            <aside className="single_sidebar_widget search_widget">
+            <aside style={{marginLeft:10}} className="">
                    <FormSearch title={"tiêu đề"} handleOnchange={handleOnchangeSearch} handleSearch={handleSearchBlog} />
                 </aside>
                 
-                   <aside class="single_sidebar_widget post_category_widget">
-                   <h4 class="widget_title">Danh mục</h4>
+                   <aside class="post_category">
+                   <h4 style={{marginBottom:20}} class="widget_title">Danh mục</h4>
                    <ul class="list cat-list">
                    <ItemCategory activeLinkId={activeLinkId} handleClickCategory={handleClickCategory} data={{value:'Tất cả',code:'',countPost:'ALL'}}/>
                       {
@@ -52,7 +53,7 @@ function RightBlog(props) {
                 
                 }
              
-                <aside className="single_sidebar_widget popular_post_widget">
+                <aside className="mt-4 popular_post_widget">
                     <h3 className="widget_title">Bài viết nổi bật</h3>
                     {dataFeatureBlog && dataFeatureBlog.length > 0 &&
                     dataFeatureBlog.map((item,index) =>{

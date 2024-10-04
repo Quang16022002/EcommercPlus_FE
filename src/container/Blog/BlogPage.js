@@ -90,26 +90,25 @@ let handleOnchangeSearch = (keyword) =>{
 }
     return (
         <>
-        <section class="banner_area">
-      <div class="banner_inner d-flex align-items-center">
+        <section class="">
+      <div style={{backgroundColor:'#fff', marginTop:100}} class="mbanner_inner d-flex align-items-center">
         <div class="container">
-          <div class="banner_content d-md-flex justify-content-between align-items-center">
-            <div class="mb-3 mb-md-0">
-              <h2>Tin tức</h2>
-              <p>Hãy theo dõi những bài viết để nhận được thông tin mới nhất</p>
-            </div>
-            <div class="page_link">
-            <Link to={"/"}>Trang chủ</Link>
-             <Link to={"/blog"}>Tin tức</Link>
-            </div>
-          </div>
+        <div style={{padding:0}} className="page_link">
+        <i class="fa-solid fa-house"></i>
+        <Link to={"/"}>Trang chủ</Link>
+        <i class="fa-solid fa-angles-right"></i>
+        <Link to={"/shop"}>Bài viết</Link>
+        
+        {/* <a>{dataProduct.name}</a> */}
+      </div>
         </div>
       </div>
     </section>
-    <section className="blog_area section_gap">
+    <section className="blog_area">
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-8 mb-5 mb-lg-0">
+               <div  className='col-md-4'> <RightBlog handleOnchangeSearch={handleOnchangeSearch} handleSearchBlog={handleSearchBlog} dataFeatureBlog={dataFeatureBlog} isPage={true} handleClickCategory={handleClickCategory} data={dataSubject} /></div>
+                    <div className="col-md-8 mb-5 mb-lg-0">
                         <div className="blog_left_sidebar">
                            {dataBlog && dataBlog.length > 0 && 
                            dataBlog.map((item,index) =>{
@@ -123,27 +122,11 @@ let handleOnchangeSearch = (keyword) =>{
                           
                         </div>
                     
-                         <ReactPaginate
-                         previousLabel={'Quay lại'}
-                         nextLabel={'Tiếp'}
-                         breakLabel={'...'}
-                         pageCount={count}
-                         marginPagesDisplayed={3}
-                         containerClassName={"pagination justify-content-center"}
-                         pageClassName={"page-item"}
-                         pageLinkClassName={"page-link"}
-                         previousLinkClassName={"page-link"}
-                         nextClassName={"page-item"}
-                         nextLinkClassName={"page-link"}
-                         breakLinkClassName={"page-link"}
-                         breakClassName={"page-item"}
-                         activeClassName={"active"}
-                         onPageChange={handleChangePage}
-                     />
+                        
                       
                        
                     </div>
-                    <RightBlog handleOnchangeSearch={handleOnchangeSearch} handleSearchBlog={handleSearchBlog} dataFeatureBlog={dataFeatureBlog} isPage={true} handleClickCategory={handleClickCategory} data={dataSubject} />
+                   
                 </div>
             </div>
         </section>

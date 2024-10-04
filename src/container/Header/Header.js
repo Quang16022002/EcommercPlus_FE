@@ -76,8 +76,8 @@ const Header = props => {
         < header className="header_area" >
             <TopMenu user={user && user} />
             <div className="main_menu">
-                <div className="container">
-                    <nav style={{height:50}} className="navbar navbar-expand-lg navbar-light w-100">
+                <div  className="container">
+                    <nav style={{}} className="navbar navbar-expand-lg navbar-light w-100">
                         <NavLink to="/" className="navbar-brand logo_h">
                             <img style={{width:30}} src="/resources/img/logo.png" alt="" />
                         </NavLink>
@@ -93,7 +93,7 @@ const Header = props => {
                             <div className="row w-100 mr-0">
                                 <div className="col-lg-9 pr-0">
                                     <ul className="nav navbar-nav center_nav pull-right">
-                                        <li className="nav-item">
+                                        <li className="nav-item" style={{}}>
                                             <NavLink exact to="/" className=" nav-link"
                                                 activeClassName="selected" activeStyle={{ color: 'black' }}>
                                                 Trang chủ

@@ -14,6 +14,7 @@ function ProductFeature(props) {
         slidesToShow: 4,
         slidesToScroll: 1,
     }
+    console.log('props',props)
     return (
 
         <section className="feature_product_area section_gap_bottom_custom">

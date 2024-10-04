@@ -7938,7 +7938,7 @@ textarea.form-control-lg {
 }
 
 .rounded-0 {
-  border-radius: 0 !important;
+  border-radius: 8px 8px 0 0  !important;
 }
 
 .rounded-1 {
@@ -11700,5 +11700,7 @@ body {
   border-radius: 0.25rem !important;
 }
 .activeCategory{
-  color: #07bc0c !important;
+  font-weight:500;
+  color: rgb(0, 110, 227) !important;
+  background-color: rgb(245, 246, 247);
 }

@@ -8,7 +8,7 @@ function PopularItemBlog(props) {
             <img style={{width:'80px', height:'80px', objectFit:'cover', borderRadius:'5px'}} src={props.data.image} alt="post" />
             <div className="media-body">
                 <Link to={`/blog-detail/${props.data.id}`}>
-                    <h3>{props.data.title}</h3>
+                    <h3 style={{textAlign:'justify'}}>{props.data.title}</h3>
                 </Link>
                 <p>{moment(props.createdAt).format("DD/MM/YYYY HH:mm")}</p>
             </div>

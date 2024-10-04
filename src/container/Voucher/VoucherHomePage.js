@@ -1,10 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import bannerPhoto from '../../../src/resources/img/banner-voucher.jfif'
-import voucherTodayPhoto from '../../../src/resources/img/voucher-today.png'
-import voucherAllPhoto from '../../../src/resources/img/voucher-all.jfif';
-import applyVoucherPhoto from '../../../src/resources/img/applyVoucher.jfif';
-import logoVoucher from '../../../src/resources/img/logoVoucher.png'
 import './VoucherHomePage.scss';
 import VoucherItem from './VoucherItem';
 import { getAllVoucher } from '../../services/userService';
@@ -14,6 +9,7 @@ import { PAGINATION } from '../../utils/constant';
 import ReactPaginate from 'react-paginate';
 import { saveUserVoucherService } from '../../services/userService';
 import CommonUtils from '../../utils/CommonUtils';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 function VoucherHomePage(props) {
     const [dataVoucher, setdataVoucher] = useState([])
     const [count, setCount] = useState('')
@@ -94,55 +90,62 @@ function VoucherHomePage(props) {
 
     }
     return (
-        <div className="voucher-container">
-            <div className="voucher-banner">
-                <img className="photo-banner" src={bannerPhoto}></img>
-                <img src={voucherTodayPhoto}></img>
-                <img src={voucherAllPhoto}></img>
-                <img src={applyVoucherPhoto}></img>
-            </div>
-            <div className="voucher-list">
-                {dataVoucher && dataVoucher.length > 0 &&
-                    dataVoucher.map((item, index) => {
-                        let percent = ""
-                        if (item.typeVoucherOfVoucherData.typeVoucher === "percent") {
-                            percent = item.typeVoucherOfVoucherData.value + "%"
-                        }
-                        if (item.typeVoucherOfVoucherData.typeVoucher === "money") {
-                            percent = CommonUtils.formatter.format(item.typeVoucherOfVoucherData.value)
 
-                        }
-                        let MaxValue = item.typeVoucherOfVoucherData.maxValue
-
-                        return (
-                            <VoucherItem sendDataFromVoucherItem={sendDataFromVoucherItem} id={item.id} width="550px" height="330px" key={index} name={item.codeVoucher} widthPercent={item.usedAmount * 100 / item.amount} maxValue={MaxValue} usedAmount={Math.round((item.usedAmount * 100 / item.amount) * 10) / 10} typeVoucher={percent} />
-                        )
-                    })
-                }
-
-
-            </div>
-            <div className="box-pagination">
-                <ReactPaginate
-                    previousLabel={'Quay lại'}
-                    nextLabel={'Tiếp'}
-                    breakLabel={'...'}
-                    pageCount={count}
-                    marginPagesDisplayed={3}
-                    containerClassName={"pagination justify-content-center"}
-                    pageClassName={"page-item"}
-                    pageLinkClassName={"page-link"}
-                    previousLinkClassName={"page-link"}
-                    nextClassName={"page-item"}
-                    nextLinkClassName={"page-link"}
-                    breakLinkClassName={"page-link"}
-                    breakClassName={"page-item"}
-                    activeClassName={"active"}
-                    onPageChange={handleChangePage}
-                />
-            </div>
-
+        <div className='mb-5'>
+            <section class="">
+      <div style={{backgroundColor:'#fff', marginTop:100}} class="mbanner_inner d-flex align-items-center">
+        <div class="container">
+        <div style={{padding:0}} className="page_link">
+        <i class="fa-solid fa-house"></i>
+        <Link to={"/"}>Trang chủ</Link>
+        <i class="fa-solid fa-angles-right"></i>
+        <Link to={"/shop"}>voucher</Link>
+        
+        {/* <a>{dataProduct.name}</a> */}
+      </div>
         </div>
+      </div>
+    </section>
+            <div className="container voucher">
+    
+    
+    
+                <div className="voucher-banner">
+                    <img className="photo-banner" src='https://images.bloggiamgia.vn/full/09-02-2023/ma-giam-gia-1675908056318.png' ></img>
+                
+                </div>
+                <div className="voucher-list">
+                    {dataVoucher && dataVoucher.length > 0 &&
+                        dataVoucher.map((item, index) => {
+                            let percent = ""
+                            if (item.typeVoucherOfVoucherData.typeVoucher === "percent") {
+                                percent = item.typeVoucherOfVoucherData.value + "%"
+                            }
+                            if (item.typeVoucherOfVoucherData.typeVoucher === "money") {
+                                percent = CommonUtils.formatter.format(item.typeVoucherOfVoucherData.value)
+    
+                            }
+                            let MaxValue = item.typeVoucherOfVoucherData.maxValue
+    
+                            return (
+                                <div className=''>
+                                    
+                                  <div >
+                                        <VoucherItem sendDataFromVoucherItem={sendDataFromVoucherItem} id={item.id} width="550px" height="330px" key={index} name={item.codeVoucher} widthPercent={item.usedAmount * 100 / item.amount} maxValue={MaxValue} usedAmount={Math.round((item.usedAmount * 100 / item.amount) * 10) / 10} typeVoucher={percent} />
+                                        
+                                  </div>
+                                    </div>
+                            )
+                        })
+                    }
+    
+    
+                </div>
+                
+    
+            </div>
+        </div>
+       
     );
 }
 

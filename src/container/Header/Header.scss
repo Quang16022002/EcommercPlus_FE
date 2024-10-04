@@ -1,5 +1,7 @@
 .main_menu{
     transition: width 2s, top 4s;
+    box-shadow: 0px 3px 16px 0px rgba(0,0,0, 0.1);
+
     &.sticky{
         position: fixed;
         width: 100%;
@@ -43,6 +45,18 @@
    
 } 
 
-.nav-link:hover {
+.nav-lin:hover {
     color: black;
 }
+
+
+.nav-lin {
+    padding: 0px 0;
+    color: black;
+
+}
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+

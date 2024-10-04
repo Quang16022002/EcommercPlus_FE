@@ -265,3 +265,17 @@ margin-top: 10px;
     width: 100px;
   }
   
+  .preview-info {
+    padding: 0;
+    text-align: justify;
+  justify-content: center;
+  > img {
+    width: 100%;
+  }
+
+  }
+  .preview-info img {
+    width: 100%; /* Ảnh rộng 100% so với div */
+    height: auto; /* Giữ tỉ lệ ảnh */
+  }
+  

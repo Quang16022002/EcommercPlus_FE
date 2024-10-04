@@ -44,7 +44,9 @@ useEffect(() => {
       });
       if (arrData && arrData.errCode === 0) {
         setdataProduct(arrData.data);
+      
         setCount(Math.ceil(arrData.count / limitPage));
+        console.log('Danh sách sản phẩm:', arrData.data);
       }
     } catch (error) {
       console.error("Error loading products:", error);

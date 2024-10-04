@@ -3,23 +3,21 @@
     align-items: center;
 
     .product-size{
-      border-radius: 5px;
-        padding: 6px 35px;
-        border: 1px solid #00000017;
-        color: #333;
-        font-size: 16px;
+      position: relative;
+      border-radius: 8px;
+        padding: 7px 37px;
+        border: 1.5px solid #00000017;
+        color: #444444;
+        font-size: 14px;
+        font-weight: 500;
         margin-left: 8px;
+        display: flex;
+        text-align: center;
         cursor: pointer;
-      transition: all 0.7s ease;
-        &:hover{
-            color: white;
-            background-color:black ;
-            border-color: black;
-        }
+      
         &.active{
-            color: white !important;
-            border-color: black!important;
-            background-color: black;
+         
+            border: 1.5px solid rgb(2, 111, 227)
         }
     }
 
@@ -96,3 +94,57 @@
         }
       }
   }
+
+  .a {
+    position: relative;
+  }
+ .aa::before {
+  position: absolute;
+  background-color: rgb(2, 111, 227);
+    border-radius: 0 6px 0 10px;
+    color: #fff;
+    content: "✓";
+    font-size: 10px;
+    height: 13px;
+    padding-bottom: 15px;
+    padding-left: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 18px;
+ }
+
+
+
+ .page_link  {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  > a {
+
+    color: rgb(154, 153, 153);
+  }
+  > i {
+    margin: 0 10px;
+    color: rgb(154, 153, 153);
+    font-size: 12px;
+  }
+  
+ }
+ .box-size {
+  margin-left: -10px;
+  display: flex;
+  flex-wrap: wrap; /* Cho phép xuống dòng nếu có quá nhiều mục */
+  .product-size {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .product-size +  .product-size {
+    // margin-left: 10px;
+  }
+}
+.addTocart {
+  display: flex;
+  align-items: center;
+}
+

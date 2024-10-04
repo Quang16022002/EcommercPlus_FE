@@ -1,24 +1,23 @@
 .box-voucher{
+    margin-top: 50px;
     color: rgb(238, 77, 45);
    
-    border: 1px solid #c4c4c4;
+    border: 1px solid #9A9999;
     border-left: 0;
-    border-radius: 2px;
     background-clip: padding-box;
-    background: repeating-linear-gradient(#c4c4c4,#c4c4c4 10px,transparent 0,transparent 30px,#c4c4c4 0,#c4c4c4 42px) 0/1px 100% no-repeat,radial-gradient(circle at 0 20px,transparent,transparent 10px,#c4c4c4 0,#c4c4c4 11px,currentColor 0) 1px 0/100% 42px repeat-y;
+    background: repeating-linear-gradient(#9A9999,#9A9999 10px,transparent 0,transparent 30px,#9A9999 0,#9A9999 42px) 0/1px 100% no-repeat,radial-gradient(circle at 0 20px,transparent,transparent 10px,#9A9999 0,#9A9999 11px,currentColor 0) 1px 0/100% 42px repeat-y;
     display: flex;
-   
+//  margin-bottom: 20px;
     .content-left{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 180px;
+        width: 100px;
         justify-content: center;
         margin: -29px 0 0 20px;
         img{
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+            width: 50px;
+            margin: 0 auto;
         }
         span{
             color: #fff;
@@ -41,7 +40,7 @@
             margin: 30px 20px;
             .name-voucher{
                 color: #212121;
-                font-size: 2.25rem;
+                font-size: 30px;
                
             }
             .max-value-voucher{

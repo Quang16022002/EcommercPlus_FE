@@ -1,14 +1,11 @@
 import React from 'react';
-
-function DescriptionProduct(props) {
-    return (
-        <div >
-            <div dangerouslySetInnerHTML={{ __html: props.data }}>
-
-            </div>
-
-        </div>
-    );
+import './DescriptionProduct.scss'
+function DescriptionProduct({ data }) {
+  return (
+    <div className="content-container">
+      <div dangerouslySetInnerHTML={{ __html: data }} />
+    </div>
+  );
 }
 
 export default DescriptionProduct;

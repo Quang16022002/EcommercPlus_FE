@@ -9,6 +9,7 @@ import {
 import { Link, useParams } from "react-router-dom";
 import { toast } from 'react-toastify';
 import moment from 'moment';
+import './DetailBlog.scss'
 function DetailBlog(props) {
   const [dataSubject, setdataSubject] = useState([])
   const [dataComment, setdataComment] = useState([])
@@ -79,31 +80,30 @@ function DetailBlog(props) {
   }
   return (
     <>
-      <section class="banner_area">
-        <div class="banner_inner d-flex align-items-center">
-          <div class="container">
-            <div class="banner_content d-md-flex justify-content-between align-items-center">
-              <div class="mb-3 mb-md-0">
-                <h2>Chi tiết bài đăng</h2>
-                <p>Theo dõi bài đăng để nhận thông tin mới nhất</p>
-              </div>
-              <div class="page_link">
-                <Link to={"/"}>Trang chủ</Link>
-                <Link to={"/blog"}>Tin tức</Link>
-              </div>
-            </div>
-          </div>
+    <section class="">
+      <div style={{backgroundColor:'#fff', marginTop:100}} class="mbanner_inner d-flex align-items-center">
+        <div class="container">
+        <div style={{padding:0}} className="page_link">
+        <i class="fa-solid fa-house"></i>
+        <Link to={"/"}>Trang chủ</Link>
+        <i class="fa-solid fa-angles-right"></i>
+        <Link to={"/shop"}>Bài viết</Link>
+        <i class="fa-solid fa-angles-right"></i>
+        <span style={{color:'#9A9999'}}>{dataBlog.title}</span>
+        {/* <a>{dataProduct.name}</a> */}
+      </div>
         </div>
-      </section>
+      </div>
+    </section>
       <section className="blog_area single-post-area section_gap">
         <div className="container">
           <div className="row">
-            <div className="col-lg-8 posts-list">
-              <div className="single-post">
+            <div style={{padding:'0 100px'}} className="col-lg-12 posts-list m">
+              <div className="single-post-item">
                 <div className="feature-img">
-                  <img style={{ width: '100%', height: '514px', objectFit: 'cover' }} className="img-fluid" src={dataBlog.image} alt="" />
+                  <img style={{ width: '100%', height: 'auto', objectFit: 'cover' }} className="img-fluid" src={dataBlog.image} alt="" />
                 </div>
-                <div className="blog_details">
+                <div style={{padding:'25px 25px'}} className="blog_details">
                   <h2>{dataBlog.title}</h2>
                   <ul className="blog-info-link mt-3 mb-4">
                     <li><a href="#"><i className="ti-user" /> {dataBlog.userData && dataBlog.userData.firstName + " " + dataBlog.userData.lastName}</a></li>
@@ -141,7 +141,7 @@ function DetailBlog(props) {
               </div>
               <CommentFormBlog handleAddComment={handleAddComment} />
             </div>
-            <RightBlog dataFeatureBlog={dataFeatureBlog} isPage={false} data={dataSubject}></RightBlog>
+           <div style={{padding:'0 50px'}} className='mx-5'> <RightBlog dataFeatureBlog={dataFeatureBlog} isPage={false} data={dataSubject}></RightBlog></div>
           </div>
         </div>
       </section>

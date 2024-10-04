@@ -26,7 +26,7 @@ function ShopPage(props) {
     setbrandId(code);
   };
   return (
-    <div>
+    <div style={{backgroundColor:'rgb(245, 245, 247)'}}>
       <section ref={myRef} className="banner_area">
         <div className="banner_inner d-flex align-items-center">
           <div className="">

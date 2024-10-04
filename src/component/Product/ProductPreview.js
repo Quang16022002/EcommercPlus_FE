@@ -19,8 +19,7 @@ function ProductPreview({
   };
 
   const productDetail = activeProduct.productDetail;
-  console.log("activeProduct", activeProduct);
-  console.log("productDetail", productDetail);
+
 
   // Hàm để chuyển sang ảnh tiếp theo
   const handleNextImage = () => {
@@ -49,14 +48,15 @@ function ProductPreview({
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Lấy nội dung và cắt đến 200 ký tự
-  const content = activeProduct.contentMarkdown;
+  const content = activeProduct.contentHTML;
   const truncatedContent = content.length > 350 ? content.substring(0, 330) + "..." : content;
 
   // Hàm để toggle trạng thái mở rộng
   const handleToggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
-  console.log('products',products)
+  console.log('activeProduct',activeProduct
+  )
   return (
     <div className="product-preview-overlay" onClick={onClose}>
       <div
@@ -93,16 +93,13 @@ function ProductPreview({
             <div className="col-md-6 py-5 px-5">
               {/* Hiển thị ảnh của phần tử hiện tại */}
               {currentProductImages.length > 0 && (
-                <div className="product-preview-info-img">
-                  {currentProductImages.map((image, index) => (
-                    <img
-                      className="image-prev-list"
-                      key={index}
-                      src={image.image}
-                      alt={`Product Image ${index}`}
-                      style={{ width: "80%", marginBottom: "10px" }}
-                    />
-                  ))}
+                  <div className="product-preview-info-img">
+                  <img
+                    className="image-prev-list"
+                    src={currentProductImages[0].image} // Chỉ hiển thị ảnh đầu tiên
+                    alt="Product Image"
+                    style={{ width: "80%", marginBottom: "10px" }}
+                  />
                 </div>
               )}
               {/* Nút chuyển ảnh */}
@@ -119,23 +116,24 @@ function ProductPreview({
               <div className="product-preview-info-left-bottom">
                 <p>Có {productDetail.length} màu</p>
                 <div className="d-flex qty-color">
-                  {productDetail.map((item, index) => (
-                    <div key={index}>
-                      {item.productImage.map((item1, index1) => (
-                        <div className="d-flex">
-                          <img
-                            style={{
-                              width: 50,
-                              height: 50,
-                            }}
-                            key={index1}
-                            src={item1.image}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
+  {productDetail.map((item, index) => (
+    <div key={index}>
+      {item.productImage.length > 0 && (
+        <div className="d-flex">
+          <img
+            style={{
+              width: 50,
+              height: 50,
+            }}
+            src={item.productImage[0].image} // Chỉ hiển thị ảnh đầu tiên
+            alt={`Product Image ${index}`} // Thêm alt cho hình ảnh
+          />
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
               </div>
             </div>
             <div className="col-md-6 py-5 px-5">
@@ -149,7 +147,15 @@ function ProductPreview({
               </p>
               <div className="product-preview-info1">
       <div className="product-preview-info-content1">
-        <p>{isExpanded ? content : truncatedContent}</p>
+      <div>
+        <div className="preview-info"
+    dangerouslySetInnerHTML={{
+      __html: isExpanded ? content : truncatedContent,
+    }}
+  ></div>
+      </div>
+
+
       </div>
       <div className="d-flex button-buy">
           {content.length > 200 && (
